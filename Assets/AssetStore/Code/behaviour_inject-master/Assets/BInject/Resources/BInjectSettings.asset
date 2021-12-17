@@ -13,12 +13,8 @@ MonoBehaviour:
   m_Name: BInjectSettings
   m_EditorClassIdentifier: 
   ContextNames:
-  - default
-  - green
-  - blue
-  - base
-  - test
+  - Application
+  - Game
   ExcludedNames:
   - System
   - UnityEngine
-  - TestIgonreNamespace

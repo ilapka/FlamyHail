@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="991e929d-1acc-495b-bf60-0e35b289fc0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Flamy Hail/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AssetStore/Code/behaviour_inject-master/Assets/BInject/Resources/BInjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AssetStore/Code/behaviour_inject-master/Assets/BInject/Resources/BInjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,10 +39,43 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Downloads/Telegram Desktop/CustomToolbar/Scripts/ToolbarExtender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Telegram Desktop/CustomToolbar/Scripts/ToolbarElements/ToolbarSceneSelection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Contexts/GameContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/Telegram Desktop/CustomToolbar/Scripts/ToolbarElements/BaseToolbarElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Commands/OnApplicationContextCreatedCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/ApplicationContextCreatedEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Commands/OnGameContextCreatedCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Preloader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/GameContextCreatedEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CustomToolbar/Scripts/ToolbarElements/ToolbarFindPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Context/ApplicationContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoadManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Loader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Commands/ApplicationCreatedCommand.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Commands/ApplicationService.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/ApplicationCreatedEvent.cs" />
+        <option value="$PROJECT_DIR$/Assets/AssetStore/Code/behaviour_inject-master/Assets/BInject/Scripts/BehaviourInject/Context.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ApplicationService.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/GameLoadedEvent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/ScenesToolbar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/BaseToolbarElement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/ToolbarSceneSelection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CustomToolbar/Scripts/ToolbarElements/ToolbarFindPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Commands/OnApplicationContextCreated.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Contexts/ApplicationContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Commands/OnApplicationContextCreatedCommand.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Preloader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Contexts/GameContext.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Commands/OnGameContextCreatedCommand.cs" />
       </list>
     </option>
   </component>
@@ -30,7 +88,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -62,6 +120,9 @@
       <option name="presentableId" value="Default" />
       <updated>1636209703844</updated>
       <workItem from="1636209709207" duration="1353000" />
+      <workItem from="1639679581673" duration="189000" />
+      <workItem from="1639679902509" duration="4210000" />
+      <workItem from="1639766173133" duration="2147000" />
     </task>
     <servers />
   </component>
@@ -70,13 +131,29 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="801" y="139" key="SettingsEditor" timestamp="1636210448215">
+    <state x="691" y="123" key="SettingsEditor" timestamp="1639679764433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="801" y="139" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636210448215" />
+    <state x="691" y="123" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1639679764433" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1639768139030">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1639768139030" />
   </component>
 </project>
