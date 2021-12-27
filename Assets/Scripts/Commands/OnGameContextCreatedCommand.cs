@@ -1,21 +1,22 @@
 using BehaviourInject;
-using UnityEngine;
+using FlamyHail.Client;
+using FlamyHail.Client.SpatialLayout;
 
 namespace FlamyHail.Commands
 {
     public class OnGameContextCreatedCommand : ICommand
     {
-        private readonly Preloader _preloader;
+        private readonly SpatialLayout _spatialLayout;
         
         [Inject]
-        public OnGameContextCreatedCommand(Preloader sceneLoader)
+        public OnGameContextCreatedCommand(SpatialLayout spatialLayout)
         {
-            _preloader = sceneLoader;
+            _spatialLayout = spatialLayout;
         }
         
         public void Execute()
         {
-            
+            _spatialLayout.CreateVerticalLayout();
         }
     }
 }

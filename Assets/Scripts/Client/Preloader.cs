@@ -1,14 +1,10 @@
-using BehaviourInject;
-using FlamyHail.Events;
-using UnityEngine;
 
-namespace FlamyHail
+namespace FlamyHail.Client
 {
     public class Preloader
     {
         private readonly SceneLoader _sceneLoader;
         
-        [Inject]
         public Preloader(SceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;

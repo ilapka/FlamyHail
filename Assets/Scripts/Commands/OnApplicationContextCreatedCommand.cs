@@ -1,4 +1,5 @@
 using BehaviourInject;
+using FlamyHail.Client;
 
 namespace FlamyHail.Commands
 {

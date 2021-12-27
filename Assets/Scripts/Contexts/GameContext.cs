@@ -1,4 +1,6 @@
 using BehaviourInject;
+using FlamyHail.Client.SpatialLayout;
+using FlamyHail.Client.Tables;
 using FlamyHail.Commands;
 using FlamyHail.Events;
 using UnityEngine;
@@ -14,10 +16,12 @@ namespace FlamyHail.Contexts
         private void Awake()
         {
             _context = Context.Create(ContextNames.Game)
-                .SetParentContext(ContextNames.Application)             
+                .SetParentContext(ContextNames.Application)
+                .RegisterType<SpatialLayout>()
                 .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>();
 
-            
+            Debug.Log($"SpatialLayout registered");
+
             _eventDispatcher = _context.Resolve<IEventDispatcher>();
             _eventDispatcher.DispatchEvent(new GameContextCreatedEvent());
         }
