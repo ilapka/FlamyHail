@@ -1,4 +1,5 @@
 using System;
+using BehaviourInject;
 using FlamyHail.Data;
 using UnityEngine;
 
@@ -6,30 +7,26 @@ namespace FlamyHail.Client.SpatialLayout
 {
     public class LayoutMovement : MonoBehaviour, IDisposable
     {
-        private readonly SpatialLayout _spatialLayout;
-        private readonly SpatialLayoutData _spatialLayoutData;
+        private SpatialLayout _spatialLayout;
+        private SpatialLayoutData _spatialLayoutData;
 
         private SpatialElement _currentElement;
 
         private float _lerpTime;
 
-        public LayoutMovement(SpatialLayout spatialLayout, IStaticData staticData)
+        [Inject]
+        public void Init(SpatialLayout spatialLayout, IStaticData staticData)
         {
             _spatialLayout = spatialLayout;
             _spatialLayoutData = staticData.SpatialLayoutData;
-            
-            Init();
+
+            ResetLayout();
         }
 
-        private void Start()
-        {
-            //Init();
-        }
-
-        public void Init()
+        private void ResetLayout()
         {
             _lerpTime = 1f / _spatialLayoutData.ElementSpeed;
-            _currentElement = _spatialLayout.TakeNearestEmptyElement();
+            _currentElement = _spatialLayout.TakeTopElement();
         }
 
         private void Update()
@@ -37,10 +34,13 @@ namespace FlamyHail.Client.SpatialLayout
             if(!gameObject.activeInHierarchy || _currentElement == null)
                 return;
             
-            if (_spatialLayout.NextIsEmpty(_currentElement.Index))
+            if (_spatialLayout.TryTakeNextElement(_currentElement, out SpatialElement nextSpatialElement))
             {
-                _currentElement = _spatialLayout.TakeNextElement(_currentElement.Index);
+                _currentElement = nextSpatialElement;
             }
+            
+            if(_currentElement.Index == -1)
+                return;
 
             if (Math.Abs(transform.position.y - _currentElement.Position.y) > 0.01f)
             {

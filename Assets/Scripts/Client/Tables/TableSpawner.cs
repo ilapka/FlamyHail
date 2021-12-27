@@ -1,3 +1,4 @@
+using FlamyHail.Client.SpatialLayout;
 using FlamyHail.Contexts;
 using FlamyHail.Data;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace FlamyHail.Client.Tables
             {
                 var table = Random.Range(0f, 1f) > 0.5 ? _spawnTablesData.LeftTable : _spawnTablesData.RightTable;
                 
-                Object.Instantiate(table.Prefab, table.SpawnPosition, table.Prefab.transform.rotation);
+                var obj = Object.Instantiate(table.Prefab, table.SpawnPosition, table.Prefab.transform.rotation);
             }
         }
     }

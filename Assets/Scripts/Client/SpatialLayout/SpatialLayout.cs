@@ -11,6 +11,8 @@ namespace FlamyHail.Client.SpatialLayout
         private readonly SpatialLayoutData _spatialLayoutData;
 
         private List<SpatialElement> _verticalLayout;
+
+        private SpatialElement _topElement;
         
         public SpatialLayout(IStaticData staticData)
         {
@@ -30,47 +32,50 @@ namespace FlamyHail.Client.SpatialLayout
                 
                 currentY += _spatialLayoutData.DistanceBetweenElements;
             }
+
+            _topElement = _verticalLayout[_verticalLayout.Count - 1];
         }
 
-        public SpatialElement TakeNearestEmptyElement()
+        public SpatialElement TakeTopElement()
         {
-            for (var index = _verticalLayout.Count - 1; index >= 0; index--)
+            if (!_topElement.IsEmpty)
+                return SpatialElement.MOCK;
+            
+            _topElement.Take();
+            return _topElement;
+        }
+
+        public bool TryTakeNextElement(SpatialElement currentElement, out SpatialElement nextSpatialElement)
+        {
+            nextSpatialElement = null;
+            
+            //if it is an element in the queue to hit the layout
+            if (currentElement.Index == SpatialElement.MOCK.Index)
             {
-                SpatialElement element = _verticalLayout[index];
-
-                if (!element.IsEmpty)
+                if (_topElement.IsEmpty)
                 {
-                    if(index >= _verticalLayout.Count - 1)
-                        break;
-
-                    _verticalLayout[index - 1].Take();
-                    return _verticalLayout[index - 1];
+                    nextSpatialElement = _topElement;
+                    nextSpatialElement.Take();
+                    currentElement.Realise();
+                    return true;
                 }
-            }
-            
-            return null;
-        }
-
-        public bool NextIsEmpty(int currentIndex)
-        {
-            if(currentIndex < 0)
-                throw new Exception($"Current index has a negative value");
-
-            if (currentIndex + 1 >= _verticalLayout.Count)
+                
                 return false;
-            
-            return _verticalLayout[currentIndex + 1].IsEmpty;
-        }
+            }
 
-        public SpatialElement TakeNextElement(int currentIndex)
-        {
-            if(currentIndex < 0)
-                throw new Exception($"Current index has a negative value");
+            int nextIndex = currentElement.Index - 1;
+            if (nextIndex < 0)
+                return false;
 
-            if (currentIndex + 1 >= _verticalLayout.Count)
-                return null;
+            if (_verticalLayout[nextIndex].IsEmpty)
+            {
+                nextSpatialElement = _verticalLayout[nextIndex];
+                nextSpatialElement.Take();
+                currentElement.Realise();
+                return true;
+            }
 
-            return _verticalLayout[currentIndex + 1];
+            return false;
         }
     }
 }
