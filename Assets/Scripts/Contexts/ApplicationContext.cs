@@ -21,9 +21,9 @@ namespace FlamyHail.Contexts
                 .RegisterDependencyAs<StaticData, IStaticData>(_staticData)
                 .RegisterType<SceneLoader>()
                 .RegisterType<Preloader>()
-                .RegisterCommand<ApplicationContextCreatedEvent, OnApplicationContextCreatedCommand>();
-            
-            
+                .RegisterCommand<ApplicationContextCreatedEvent, OnApplicationContextCreatedCommand>()
+                .CreateAll();
+
             DontDestroyOnLoad(this);
 
             _eventDispatcher = _context.Resolve<IEventDispatcher>();
@@ -39,11 +39,5 @@ namespace FlamyHail.Contexts
         {
             _context.Destroy();
         }
-    }
-
-    public class ContextNames
-    {
-        public const string Application = "Application";
-        public const string Game = "Game";
     }
 }

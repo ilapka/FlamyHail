@@ -7,8 +7,11 @@ namespace FlamyHail
     public class StaticData : ScriptableObject, IStaticData
     {
         [SerializeField]
-        private SpatialLayoutData spatialLayoutData;
+        private SpatialLayoutData _spatialLayoutData;
+        [SerializeField]
+        private SpawnTablesData _spawnTablesData;
 
-        public SpatialLayoutData SpatialLayoutData => spatialLayoutData;
+        public SpatialLayoutData SpatialLayoutData => _spatialLayoutData;
+        public SpawnTablesData SpawnTablesData => _spawnTablesData;
     }
 }

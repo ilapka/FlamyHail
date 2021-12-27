@@ -17,11 +17,13 @@ namespace FlamyHail.Client.SpatialLayout
         {
             _spatialLayout = spatialLayout;
             _spatialLayoutData = staticData.SpatialLayoutData;
+            
+            Init();
         }
 
         private void Start()
         {
-            Init();
+            //Init();
         }
 
         public void Init()

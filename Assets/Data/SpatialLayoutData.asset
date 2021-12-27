@@ -15,3 +15,4 @@ MonoBehaviour:
   _startYPosition: -3.2
   _distanceBetweenElements: 1.1
   _elementCount: 10
+  _elementSpeed: 10

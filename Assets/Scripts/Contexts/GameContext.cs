@@ -18,10 +18,10 @@ namespace FlamyHail.Contexts
             _context = Context.Create(ContextNames.Game)
                 .SetParentContext(ContextNames.Application)
                 .RegisterType<SpatialLayout>()
-                .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>();
-
-            Debug.Log($"SpatialLayout registered");
-
+                .RegisterType<TableSpawner>()
+                .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>()
+                .CreateAll();
+            
             _eventDispatcher = _context.Resolve<IEventDispatcher>();
             _eventDispatcher.DispatchEvent(new GameContextCreatedEvent());
         }

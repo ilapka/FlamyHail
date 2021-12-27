@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36eada1493a9cf45984de86017f1423, type: 3}
   m_Name: StaticData
   m_EditorClassIdentifier: 
-  spatialLayoutData: {fileID: 11400000, guid: 2d1debea065215a4e932d827e6d1e648, type: 2}
+  _spatialLayoutData: {fileID: 11400000, guid: 2d1debea065215a4e932d827e6d1e648, type: 2}
+  _spawnTablesData: {fileID: 11400000, guid: e76a9c8bcb01ca448ba4f1599bc1e554, type: 2}
