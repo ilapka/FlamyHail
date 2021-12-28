@@ -3,6 +3,7 @@ using FlamyHail.Client;
 using FlamyHail.Commands;
 using FlamyHail.Data;
 using FlamyHail.Events;
+using FlamyHail.SupportServices;
 using UnityEngine;
 
 namespace FlamyHail.Contexts
@@ -11,19 +12,28 @@ namespace FlamyHail.Contexts
     {
         [SerializeField]
         private StaticData _staticData;
+        [SerializeField]
+        private UpdateProvider _updateProvider;
         
         private Context _context;
         private IEventDispatcher _eventDispatcher;
         
         private void Awake()
         {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            
+#if !UNITY_EDITOR
+            Application.targetFrameRate = 60;
+#endif
+            
             _context = Context.Create(ContextNames.Application)
                 .RegisterDependencyAs<StaticData, IStaticData>(_staticData)
+                .RegisterDependency(_updateProvider)
                 .RegisterType<SceneLoader>()
                 .RegisterType<Preloader>()
                 .RegisterCommand<ApplicationContextCreatedEvent, OnApplicationContextCreatedCommand>()
                 .CreateAll();
-
+            
             DontDestroyOnLoad(this);
 
             _eventDispatcher = _context.Resolve<IEventDispatcher>();
