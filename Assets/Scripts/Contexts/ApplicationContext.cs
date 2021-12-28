@@ -31,6 +31,7 @@ namespace FlamyHail.Contexts
                 .RegisterDependency(_updateProvider)
                 .RegisterType<SceneLoader>()
                 .RegisterType<Preloader>()
+                .RegisterType<CameraController>()
                 .RegisterCommand<ApplicationContextCreatedEvent, OnApplicationContextCreatedCommand>()
                 .CreateAll();
             

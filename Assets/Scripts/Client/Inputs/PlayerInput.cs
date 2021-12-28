@@ -1,7 +1,6 @@
 using System;
 using FlamyHail.SupportServices;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace FlamyHail.Client.Inputs
 {

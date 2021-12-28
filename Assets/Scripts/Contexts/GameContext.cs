@@ -1,4 +1,5 @@
 using BehaviourInject;
+using FlamyHail.Client.Gameplay;
 using FlamyHail.Client.Inputs;
 using FlamyHail.Client.SpatialLayout;
 using FlamyHail.Client.Tables;
@@ -20,6 +21,8 @@ namespace FlamyHail.Contexts
                 .RegisterTypeAs<PlayerInput, IBaseInput>()
                 .RegisterType<SpatialLayout>()
                 .RegisterType<TableSpawner>()
+                .RegisterType<RaycastService>()
+                .RegisterType<Shooter>()
                 .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>()
                 .CreateAll();
             

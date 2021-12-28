@@ -57,7 +57,8 @@ namespace FlamyHail.Client.SpatialLayout
 
         private void OnDestroy()
         {
-            Dispose();
+            if(_currentElement != null)
+                Dispose();
         }
     }
 }
