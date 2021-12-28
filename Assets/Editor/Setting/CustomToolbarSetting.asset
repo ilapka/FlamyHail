@@ -19,41 +19,35 @@ MonoBehaviour:
   - id: 3
   - id: 4
   - id: 5
-  - id: 6
   references:
     version: 1
     00000000:
-      type: {class: ToolbarSceneSelection, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarSceneSelection, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 100
     00000001:
-      type: {class: ToolbarSpace, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarSpace, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 10
     00000002:
-      type: {class: ToolbarStartFromFirstScene, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarStartFromFirstScene, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 100
     00000003:
-      type: {class: ToolbarSpace, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarSpace, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 10
     00000004:
-      type: {class: ToolbarSides, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarSides, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 100
     00000005:
-      type: {class: ToolbarFindPlayer, ns: , asm: Assembly-CSharp}
-      data:
-        IsEnabled: 1
-        WidthInToolbar: 100
-    00000006:
-      type: {class: ToolbarCopyProject, ns: , asm: Assembly-CSharp}
+      type: {class: ToolbarCopyProject, ns: , asm: Assembly-CSharp-Editor}
       data:
         IsEnabled: 1
         WidthInToolbar: 100

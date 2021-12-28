@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FlamyHail.Client.Tables;
 using UnityEngine;
 
 namespace FlamyHail.Data
@@ -10,24 +9,12 @@ namespace FlamyHail.Data
         [SerializeField]
         private int _initialCount;
         [SerializeField]
-        private TableData _leftTable;
+        private PrefabContainer<Table> leftTableContainer;
         [SerializeField]
-        private TableData _rightTable;
+        private PrefabContainer<Table> rightTableContainer;
         
         public float InitialCount => _initialCount;
-        public TableData LeftTable => _leftTable;
-        public TableData RightTable => _rightTable;
-    }
-
-    [Serializable]
-    public class TableData
-    {
-        [SerializeField]
-        private GameObject _prefab;
-        [SerializeField]
-        private Vector3 _spawnPosition;
-        
-        public GameObject Prefab => _prefab;
-        public Vector3 SpawnPosition => _spawnPosition;
+        public PrefabContainer<Table> LeftTableContainer => leftTableContainer;
+        public PrefabContainer<Table> RightTableContainer => rightTableContainer;
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SpawnTablesData
   m_EditorClassIdentifier: 
   _initialCount: 10
-  _leftTable:
-    _prefab: {fileID: 566000175398205827, guid: 69a8c1afdd237c04499037f7208dd2bb, type: 3}
-    _spawnPosition: {x: -3.55, y: 8, z: 0}
-  _rightTable:
-    _prefab: {fileID: 4110934842947662077, guid: d61c565384fd45f4d9917240d08f6dbb, type: 3}
-    _spawnPosition: {x: 3.55, y: 8, z: 0}
+  leftTableContainer:
+    _spawnPosition: {x: -3.578, y: 8, z: 0}
+    _prefab: {fileID: 4286951259035153200, guid: 69a8c1afdd237c04499037f7208dd2bb, type: 3}
+  rightTableContainer:
+    _spawnPosition: {x: 3.578, y: 8, z: 0}
+    _prefab: {fileID: -2568987024059192644, guid: d61c565384fd45f4d9917240d08f6dbb, type: 3}

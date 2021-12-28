@@ -27,7 +27,6 @@ internal static class CustomToolbarReordableList {
 				new ToolbarStartFromFirstScene(),
 				null,
 
-				new ToolbarFindPlayer(),
 				new ToolbarCopyProject(),
 				null,
 			};

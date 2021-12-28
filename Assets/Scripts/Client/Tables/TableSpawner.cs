@@ -18,10 +18,24 @@ namespace FlamyHail.Client.Tables
         {
             for (int i = 0; i < _spawnTablesData.InitialCount; i++)
             {
-                var table = Random.Range(0f, 1f) > 0.5 ? _spawnTablesData.LeftTable : _spawnTablesData.RightTable;
-                
-                var obj = Object.Instantiate(table.Prefab, table.SpawnPosition, table.Prefab.transform.rotation);
+                SpawnTable();
             }
+        }
+
+        private void SpawnTable()
+        {
+            PrefabContainer<Table> prefabContainer = Random.Range(0f, 1f) > 0.5 ?
+                _spawnTablesData.LeftTableContainer : _spawnTablesData.RightTableContainer;
+                
+            Table table = Object.Instantiate(prefabContainer.Prefab, prefabContainer.SpawnPosition, prefabContainer.Prefab.transform.rotation);
+
+            table.OnHit += OnHitTableHandler;
+        }
+
+        private void OnHitTableHandler(Table table)
+        {
+            table.OnHit -= OnHitTableHandler;
+            SpawnTable();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace FlamyHail.Client.Tables
     {
         private LayoutMovement _layoutMovement;
         private Rigidbody _rigidbody;
+        public event Action<Table> OnHit;
 
         private void Awake()
         {
@@ -19,8 +20,11 @@ namespace FlamyHail.Client.Tables
         {
             _rigidbody.useGravity = true;
             _rigidbody.isKinematic = false;
+            gameObject.layer = Layers.IGNORE_RAYCAST;
             _layoutMovement.Dispose();
             Destroy(gameObject, 5f);
+
+            OnHit?.Invoke(this);
         }
     }
 }
