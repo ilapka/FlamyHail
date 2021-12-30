@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d709b3a60a91a64babc6547640e6af5, type: 3}
-  m_Name: TableTemplateList 1
+  m_Name: TableRainbowList
   m_EditorClassIdentifier: 
   _templates:
   - _type: 0

@@ -547,14 +547,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110934842947662077}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 3.578, y: -3.18, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 3478057889906403263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &-2568987024059192644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +568,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteBody: {fileID: 288951796143066773}
+  _layoutMovement: {fileID: 8228449955134395358}
+  _rigidbody: {fileID: -1232019982167161724}
+  _collider: {fileID: 5527484524148673758}
 --- !u!114 &8727440270945591768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,7 +605,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4110934842947662077}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.6076267, y: 0.6381873, z: 0.09858998}
@@ -621,7 +624,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 82
   m_CollisionDetection: 0
 --- !u!1 &5753031528298644668
 GameObject:

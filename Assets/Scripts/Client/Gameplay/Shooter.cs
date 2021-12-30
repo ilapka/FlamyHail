@@ -22,7 +22,7 @@ namespace FlamyHail.Client.Gameplay
             
             if (raycastHit.transform.TryGetComponent(out Table table))
             {
-                table.Hit();
+                table.Hit(raycastHit.point);
             }
         }
 

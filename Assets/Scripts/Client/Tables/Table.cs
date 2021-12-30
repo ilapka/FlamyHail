@@ -10,9 +10,12 @@ namespace FlamyHail.Client.Tables
     {
         [SerializeField]
         private SpriteRenderer _spriteBody;
-        
+        [SerializeField]
         private LayoutMovement _layoutMovement;
+        [SerializeField]
         private Rigidbody _rigidbody;
+        [SerializeField]
+        private Collider _collider;
 
         private bool _isInit;
 
@@ -21,8 +24,6 @@ namespace FlamyHail.Client.Tables
 
         public override void ActivateSequence()
         {
-            Init();
-            
             _rigidbody.useGravity = false;
             _rigidbody.isKinematic = true;
             gameObject.layer = Layers.DEFAULT;
@@ -37,22 +38,15 @@ namespace FlamyHail.Client.Tables
             gameObject.SetActive(false);
         }
 
-        private void Init()
-        {
-            if(_isInit) return;
-            
-            _isInit = true;
-            _layoutMovement = GetComponent<LayoutMovement>();
-            _rigidbody = GetComponent<Rigidbody>();
-        }
-
-        public void Hit()
+        public void Hit(Vector3 position)
         {
             _layoutMovement.Deactivate();
 
             _rigidbody.useGravity = true;
             _rigidbody.isKinematic = false;
             gameObject.layer = Layers.IGNORE_RAYCAST;
+            
+            _rigidbody.AddForce(-transform.forward * 10f, ForceMode.VelocityChange);
 
             OnHit?.Invoke(this);
 
