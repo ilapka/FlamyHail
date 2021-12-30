@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FlamyHail.Client.SpatialLayout
 {
-    public class LayoutMovement : MonoBehaviour, IDisposable
+    public class LayoutMovement : MonoBehaviour
     {
         private SpatialLayout _spatialLayout;
         private SpatialLayoutData _spatialLayoutData;
@@ -19,13 +19,12 @@ namespace FlamyHail.Client.SpatialLayout
         {
             _spatialLayout = spatialLayout;
             _spatialLayoutData = staticData.SpatialLayoutData;
-
-            ResetLayout();
+            
+            _lerpTime = 1f / _spatialLayoutData.ElementSpeed;
         }
 
-        private void ResetLayout()
+        public void Activate()
         {
-            _lerpTime = 1f / _spatialLayoutData.ElementSpeed;
             _currentElement = _spatialLayout.TakeTopElement();
         }
 
@@ -49,16 +48,10 @@ namespace FlamyHail.Client.SpatialLayout
             }
         }
 
-        public void Dispose()
+        public void Deactivate()
         {
             _currentElement?.Realise();
             _currentElement = null;
-        }
-
-        private void OnDestroy()
-        {
-            if(_currentElement != null)
-                Dispose();
         }
     }
 }

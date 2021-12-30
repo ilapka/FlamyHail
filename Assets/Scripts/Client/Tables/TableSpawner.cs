@@ -1,6 +1,5 @@
-using FlamyHail.Client.SpatialLayout;
-using FlamyHail.Contexts;
 using FlamyHail.Data;
+using FlamyHail.Pooler;
 using UnityEngine;
 
 namespace FlamyHail.Client.Tables
@@ -8,10 +7,12 @@ namespace FlamyHail.Client.Tables
     public class TableSpawner
     {
         private readonly SpawnTablesData _spawnTablesData;
-
-        public TableSpawner(IStaticData staticData)
+        private readonly WidePooler _widePooler;
+        
+        public TableSpawner(IStaticData staticData, WidePooler widePooler)
         {
             _spawnTablesData = staticData.SpawnTablesData;
+            _widePooler = widePooler;
         }
 
         public void GenerateTables()
@@ -26,9 +27,9 @@ namespace FlamyHail.Client.Tables
         {
             PrefabContainer<Table> prefabContainer = Random.Range(0f, 1f) > 0.5 ?
                 _spawnTablesData.LeftTableContainer : _spawnTablesData.RightTableContainer;
-                
-            Table table = Object.Instantiate(prefabContainer.Prefab, prefabContainer.SpawnPosition, prefabContainer.Prefab.transform.rotation);
 
+            Table table = _widePooler.Create<Table>(prefabContainer.SpawnPosition, null, prefabContainer.Scale);
+            
             table.OnHit += OnHitTableHandler;
         }
 

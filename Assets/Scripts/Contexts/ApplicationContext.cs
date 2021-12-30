@@ -14,7 +14,7 @@ namespace FlamyHail.Contexts
         private StaticData _staticData;
         [SerializeField]
         private UpdateProvider _updateProvider;
-        
+
         private Context _context;
         private IEventDispatcher _eventDispatcher;
         
