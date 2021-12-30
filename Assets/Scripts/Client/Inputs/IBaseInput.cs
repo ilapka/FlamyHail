@@ -1,9 +1,10 @@
 using System;
+using UnityEngine;
 
 namespace FlamyHail.Client.Inputs
 {
     public interface IBaseInput
     {
-        event Action<MouseInput> OnMouseButtonDown;
+        event Action<Touch> OnTouchBegan;
     }
 }

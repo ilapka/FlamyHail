@@ -1,4 +1,3 @@
-using System;
 using BehaviourInject;
 using FlamyHail.Client.Gameplay;
 using FlamyHail.Client.Inputs;
@@ -18,19 +17,24 @@ namespace FlamyHail.Contexts
         
         private Context _context;
         private IEventDispatcher _eventDispatcher;
-
+        
         private void Awake()
         {
             _context = Context.Create(ContextNames.Game)
                 .SetParentContext(ContextNames.Application)
                 .RegisterDependency(_widePooler)
-                .RegisterTypeAs<PlayerInput, IBaseInput>()
                 .RegisterType<SpatialLayout>()
                 .RegisterType<TableSpawner>()
                 .RegisterType<RaycastService>()
                 .RegisterType<Shooter>()
-                .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>()
-                .CreateAll();
+                .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>();
+            
+            if(Application.isMobilePlatform)
+                _context.RegisterTypeAs<MobileInput, IBaseInput>();
+            else
+                _context.RegisterTypeAs<CommonInput, IBaseInput>();
+
+            _context.CreateAll();
         }
 
         private void Start()
@@ -48,5 +52,7 @@ namespace FlamyHail.Contexts
         {
             _context.Destroy();
         }
+        
+        public Context Context => _context;
     }
 }

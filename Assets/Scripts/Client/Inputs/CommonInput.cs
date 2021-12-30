@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace FlamyHail.Client.Inputs
 {
-    public class PlayerInput : IBaseInput, IUpdatable, IDisposable
+    public class CommonInput : IBaseInput, IUpdatable, IDisposable
     {
         private readonly UpdateProvider _updateProvider;
-        
-        public event Action<MouseInput> OnMouseButtonDown;
-
-        public PlayerInput(UpdateProvider updateProvider)
+        public event Action<Touch> OnTouchBegan;
+        public CommonInput(UpdateProvider updateProvider)
         {
             _updateProvider = updateProvider;
             
@@ -21,8 +19,10 @@ namespace FlamyHail.Client.Inputs
         {
             if(Input.GetMouseButtonDown(0))
             {
-                MouseInput mouseInput = new MouseInput(Input.mousePosition);
-                OnMouseButtonDown?.Invoke(mouseInput);
+                Touch touchData = new Touch();
+                touchData.position = Input.mousePosition;
+                touchData.phase = TouchPhase.Began;
+                OnTouchBegan?.Invoke(touchData);
             }
         }
 

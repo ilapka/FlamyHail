@@ -2,10 +2,10 @@
 
 namespace FlamyHail.Client.Inputs
 {
-    public struct MouseInput
+    public readonly struct TouchData
     {
         public Vector3 Position { get; }
-        public MouseInput(Vector3 position)
+        public TouchData(Vector3 position)
         {
             Position = position;
         }

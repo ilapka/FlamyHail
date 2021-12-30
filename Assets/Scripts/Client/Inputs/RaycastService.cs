@@ -15,12 +15,12 @@ namespace FlamyHail.Client.Inputs
             _input = input;
             _cameraController = cameraController;
 
-            _input.OnMouseButtonDown += RaycastOnInput;
+            _input.OnTouchBegan += RaycastOnInput;
         }
-        private void RaycastOnInput(MouseInput mouseInput)
+        private void RaycastOnInput(Touch touchData)
         {
             Camera camera = _cameraController.GetCurrentCamera();
-            Ray ray = camera.ScreenPointToRay(mouseInput.Position);
+            Ray ray = camera.ScreenPointToRay(touchData.position);
 
             bool isHit = Physics.Raycast(ray, out RaycastHit hit, 100);
             RaycastOnMouseDown?.Invoke(isHit, hit);
@@ -28,7 +28,7 @@ namespace FlamyHail.Client.Inputs
 
         public void Dispose()
         {
-            _input.OnMouseButtonDown -= RaycastOnInput;
+            _input.OnTouchBegan -= RaycastOnInput;
         }
     }
 }
