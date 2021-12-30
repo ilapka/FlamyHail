@@ -7,5 +7,6 @@ namespace FlamyHail.Data
         SpatialLayoutData SpatialLayoutData { get; }
         SpawnTablesData SpawnTablesData { get; }
         PoolerData PoolerData { get; }
+        TableTemplateList TableTemplateList { get; }
     }
 }

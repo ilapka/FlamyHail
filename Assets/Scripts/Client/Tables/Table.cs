@@ -1,5 +1,6 @@
 using System;
 using FlamyHail.Client.SpatialLayout;
+using FlamyHail.DOM;
 using FlamyHail.Pooler;
 using UnityEngine;
 
@@ -7,10 +8,15 @@ namespace FlamyHail.Client.Tables
 {
     public class Table : PoolObject
     {
+        [SerializeField]
+        private SpriteRenderer _spriteBody;
+        
         private LayoutMovement _layoutMovement;
         private Rigidbody _rigidbody;
 
         private bool _isInit;
+
+        private TableTemplate _currentTemplate;
         public event Action<Table> OnHit;
 
         public override void ActivateSequence()
@@ -52,5 +58,13 @@ namespace FlamyHail.Client.Tables
 
             Pooler.Destroy(this, 1.5f);
         }
+
+        public void Install(TableTemplate template)
+        {
+            _currentTemplate = template;
+            _spriteBody.color = _currentTemplate.Color;
+        }
+
+        public TableType Type => _currentTemplate.Type;
     }
 }

@@ -12,9 +12,12 @@ namespace FlamyHail.Data
         private SpawnTablesData _spawnTablesData;
         [SerializeField]
         private PoolerData _poolerData;
+        [SerializeField]
+        private TableTemplateList _tableTemplateList;
 
         public SpatialLayoutData SpatialLayoutData => _spatialLayoutData;
         public SpawnTablesData SpawnTablesData => _spawnTablesData;
         public PoolerData PoolerData => _poolerData;
+        public TableTemplateList TableTemplateList => _tableTemplateList;
     }
 }

@@ -1,17 +1,20 @@
 using FlamyHail.Data;
+using FlamyHail.DOM;
 using FlamyHail.Pooler;
-using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace FlamyHail.Client.Tables
 {
     public class TableSpawner
     {
         private readonly SpawnTablesData _spawnTablesData;
+        private readonly TableTemplateList _tableTemplateList;
         private readonly WidePooler _widePooler;
         
         public TableSpawner(IStaticData staticData, WidePooler widePooler)
         {
             _spawnTablesData = staticData.SpawnTablesData;
+            _tableTemplateList = staticData.TableTemplateList;
             _widePooler = widePooler;
         }
 
@@ -29,6 +32,9 @@ namespace FlamyHail.Client.Tables
                 _spawnTablesData.LeftTableContainer : _spawnTablesData.RightTableContainer;
 
             Table table = _widePooler.Create<Table>(prefabContainer.SpawnPosition, null, prefabContainer.Scale);
+
+            TableTemplate template = _tableTemplateList.Templates[Random.Range(0, _tableTemplateList.Templates.Count)];
+            table.Install(template);
             
             table.OnHit += OnHitTableHandler;
         }
