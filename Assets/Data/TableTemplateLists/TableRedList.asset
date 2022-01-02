@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398851a5858aa384998adf55b0b7d94a, type: 3}
-  m_Name: SpatialLayoutData
+  m_Script: {fileID: 11500000, guid: 4d709b3a60a91a64babc6547640e6af5, type: 3}
+  m_Name: TableRedList
   m_EditorClassIdentifier: 
-  _startYPosition: -3.2
-  _distanceBetweenPoints: 1.1
-  _pointsCount: 10
-  _pointAgentSpeed: 10
-  _triggers:
-  - pointIndex: 0
-    _listenedAction: 2
-    _dispatchedAction: 0
+  _goodTemplates:
+  - _color: {r: 0.7169812, g: 0.016233515, b: 0.03467417, a: 1}
+  _badTemplates:
+  - _color: {r: 0, g: 0, b: 0, a: 1}
+  _badSpawnChance: 0.25

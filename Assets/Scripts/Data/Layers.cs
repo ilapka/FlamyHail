@@ -1,4 +1,4 @@
-﻿namespace FlamyHail.Client.Tables
+﻿namespace FlamyHail.Data
 {
     public static class Layers
     {

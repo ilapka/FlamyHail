@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlamyHail.Client.Inputs
+namespace FlamyHail.DOM
 {
     public readonly struct TouchData
     {

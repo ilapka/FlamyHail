@@ -6,22 +6,19 @@ namespace FlamyHail.Client
 {
    public class SceneLoader
    {
-      public event Action<SceneName> loadingStarted;
-      public event Action<float> loadingProgressUpdated;
-      public event Action<SceneName> loadingCompleted;
+      public event Action<SceneName> OnLoadingStarted;
+      public event Action<float> OnLoadingProgressUpdated;
+      public event Action<SceneName> OnLoadingCompleted;
 
       public AsyncOperation LoadGame()
       {
          SceneName sceneName = SceneName.Game;
 
          AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName.ToString());
-         loadingStarted?.Invoke(sceneName);
+         OnLoadingStarted?.Invoke(sceneName);
 
          return asyncOperation;
       }
-
-
-
    }
 }
 

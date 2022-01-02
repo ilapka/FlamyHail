@@ -1,4 +1,3 @@
-
 namespace FlamyHail.Client
 {
     public class Preloader

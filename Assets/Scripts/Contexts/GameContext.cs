@@ -2,7 +2,6 @@ using BehaviourInject;
 using FlamyHail.Client.Gameplay;
 using FlamyHail.Client.Inputs;
 using FlamyHail.Client.SpatialLayout;
-using FlamyHail.Client.Tables;
 using FlamyHail.Commands;
 using FlamyHail.Events;
 using FlamyHail.Pooler;
@@ -24,10 +23,10 @@ namespace FlamyHail.Contexts
                 .SetParentContext(ContextNames.Application)
                 .RegisterDependency(_widePooler)
                 .RegisterType<SpatialLayout>()
-                .RegisterType<TableSpawner>()
+                .RegisterType<LayoutEventService>()
+                .RegisterType<TablesLifecycle>()
                 .RegisterType<RaycastService>()
-                .RegisterType<Shooter>()
-                .RegisterCommand<GameContextCreatedEvent, OnGameContextCreatedCommand>();
+                .RegisterType<GameCreatingPipeline>();
             
             if(Application.isMobilePlatform)
                 _context.RegisterTypeAs<MobileInput, IBaseInput>();
@@ -35,10 +34,7 @@ namespace FlamyHail.Contexts
                 _context.RegisterTypeAs<CommonInput, IBaseInput>();
 
             _context.CreateAll();
-        }
-
-        private void Start()
-        {
+            
             _eventDispatcher = _context.Resolve<IEventDispatcher>();
             _eventDispatcher.DispatchEvent(new GameContextCreatedEvent());
         }
@@ -52,7 +48,5 @@ namespace FlamyHail.Contexts
         {
             _context.Destroy();
         }
-        
-        public Context Context => _context;
     }
 }

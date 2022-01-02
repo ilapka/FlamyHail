@@ -10,14 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d709b3a60a91a64babc6547640e6af5, type: 3}
-  m_Name: TableFireList
+  m_Name: TableRedList 1
   m_EditorClassIdentifier: 
-  _templates:
-  - _type: 0
-    _color: {r: 1, g: 0, b: 0, a: 1}
-  - _type: 1
-    _color: {r: 1, g: 0.3622641, b: 0.3622641, a: 1}
-  - _type: 2
-    _color: {r: 0.5943396, g: 0, b: 0.016591273, a: 1}
-  - _type: 3
-    _color: {r: 1, g: 0.34381223, b: 0, a: 1}
+  _goodTemplates:
+  - _color: {r: 0.59607846, g: 0, b: 0.015686275, a: 1}
+  _badTemplates:
+  - _color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}

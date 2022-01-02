@@ -1,4 +1,5 @@
 using System;
+using FlamyHail.DOM.Types;
 using UnityEngine;
 
 namespace FlamyHail.DOM
@@ -7,17 +8,18 @@ namespace FlamyHail.DOM
     public class TableTemplate
     {
         [SerializeField]
-        private TableType _type;
-        [SerializeField]
         private Color _color;
+        public int StaticId { get; private set; }
+        public TableType Type { get; private set; }
 
-        public TableTemplate(TableType type, Color color)
+        public TableTemplate(int staticId, TableType type, Color color)
         {
-            _type = type;
+            StaticId = staticId;
+            Type = type;
+            
             _color = color;
         }
 
-        public TableType Type => _type;
         public Color Color => _color;
     }
 }

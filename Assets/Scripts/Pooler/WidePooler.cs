@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using BehaviourInject;
 using FlamyHail.Data;
 using UnityEngine;
 
@@ -10,10 +9,7 @@ namespace FlamyHail.Pooler
     public class WidePooler : MonoBehaviour
     {
         private PoolerData _poolerData;
-
         private Dictionary<Type, Pool> _pooler = new Dictionary<Type, Pool>();
-
-        [Inject]
         public void Init(IStaticData staticData)
         {
             _poolerData = staticData.PoolerData;

@@ -83,7 +83,6 @@ namespace FlamyHail.Pooler
         private PoolObject Instantiate()
         {
             PoolObject poolObject = Object.Instantiate(_poolData.Prefab, _poolRoot);
-            poolObject.InitPool(_widePooler);
             poolObject.gameObject.SetActive(false);
             return poolObject;
         }

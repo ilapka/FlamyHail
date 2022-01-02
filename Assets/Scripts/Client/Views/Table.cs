@@ -1,10 +1,11 @@
 using System;
-using FlamyHail.Client.SpatialLayout;
+using FlamyHail.Data;
 using FlamyHail.DOM;
+using FlamyHail.DOM.Types;
 using FlamyHail.Pooler;
 using UnityEngine;
 
-namespace FlamyHail.Client.Tables
+namespace FlamyHail.Client.Views
 {
     public class Table : PoolObject
     {
@@ -16,12 +17,10 @@ namespace FlamyHail.Client.Tables
         private Rigidbody _rigidbody;
         [SerializeField]
         private Collider _collider;
-
-        private bool _isInit;
-
-        private TableTemplate _currentTemplate;
-        public event Action<Table> OnHit;
-
+        
+        private TableTemplate _tableTemplate;
+        public event Action<int, Table> OnPositionChanged;
+        
         public override void ActivateSequence()
         {
             _rigidbody.useGravity = false;
@@ -29,17 +28,29 @@ namespace FlamyHail.Client.Tables
             gameObject.layer = Layers.DEFAULT;
             
             gameObject.SetActive(true);
+            
+            _layoutMovement.OnLayoutPointChanged += OnLayoutPointChangedHandler;
+        }
+        
+        public void Init(TableTemplate template)
+        {
+            _tableTemplate = template;
+            _spriteBody.color = _tableTemplate.Color;
+            
             _layoutMovement.Activate();
         }
 
         public override void DeactivateSequence()
         {
+            _layoutMovement.OnLayoutPointChanged -= OnLayoutPointChangedHandler;
             _layoutMovement.Deactivate();
+            
             gameObject.SetActive(false);
         }
 
-        public void Hit(Vector3 position)
+        public void TakeHit(Vector3 position)
         {
+            _layoutMovement.OnLayoutPointChanged -= OnLayoutPointChangedHandler;
             _layoutMovement.Deactivate();
 
             _rigidbody.useGravity = true;
@@ -47,18 +58,13 @@ namespace FlamyHail.Client.Tables
             gameObject.layer = Layers.IGNORE_RAYCAST;
             
             _rigidbody.AddForce(-transform.forward * 10f, ForceMode.VelocityChange);
-
-            OnHit?.Invoke(this);
-
-            Pooler.Destroy(this, 1.5f);
         }
 
-        public void Install(TableTemplate template)
+        private void OnLayoutPointChangedHandler(LayoutPoint layoutPoint)
         {
-            _currentTemplate = template;
-            _spriteBody.color = _currentTemplate.Color;
+            OnPositionChanged?.Invoke(layoutPoint.Index, this);
         }
 
-        public TableType Type => _currentTemplate.Type;
+        public TableType Type => _tableTemplate.Type;
     }
 }

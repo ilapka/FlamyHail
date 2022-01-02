@@ -15,4 +15,4 @@ MonoBehaviour:
   _spatialLayoutData: {fileID: 11400000, guid: 2d1debea065215a4e932d827e6d1e648, type: 2}
   _spawnTablesData: {fileID: 11400000, guid: e76a9c8bcb01ca448ba4f1599bc1e554, type: 2}
   _poolerData: {fileID: 11400000, guid: e456b0ca17115b0499441780db72fe81, type: 2}
-  _tableTemplateList: {fileID: 11400000, guid: a49917e6df4936346a788b843ed96e5f, type: 2}
+  _tableTemplateList: {fileID: 11400000, guid: 2ad4a0e9733879b4daf8a04f2724b713, type: 2}
