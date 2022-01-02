@@ -9,17 +9,19 @@ namespace FlamyHail.DOM
     {
         [SerializeField]
         private Color _color;
-        public int StaticId { get; private set; }
-        public TableType Type { get; private set; }
+        [SerializeField]
+        private TableType _type;
+        public int StaticId { get; set; }
 
         public TableTemplate(int staticId, TableType type, Color color)
         {
             StaticId = staticId;
-            Type = type;
             
+            _type = type;
             _color = color;
         }
 
         public Color Color => _color;
+        public TableType Type => _type;
     }
 }

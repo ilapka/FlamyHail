@@ -25,6 +25,9 @@ namespace FlamyHail.Client.Gameplay
 
         private readonly Table[] _tablesOnPositions;
 
+        private List<TableTemplate> _goodTemplate = new List<TableTemplate>();
+        private List<TableTemplate> _badTemplate = new List<TableTemplate>();
+
         private event Action<int> OnFinishTrigger;
 
         public TablesLifecycle(GameCreatingPipeline gameCreatingPipeline, IStaticData staticData, WidePooler widePooler,
@@ -46,9 +49,31 @@ namespace FlamyHail.Client.Gameplay
         }
         private void GenerateTables()
         {
+            CreateTemplates();
+            
             for (int i = 0; i < _spawnTablesData.InitialCount; i++)
             {
                 SpawnTable();
+            }
+        }
+
+        private void CreateTemplates()
+        {
+            for (var index = 0; index < _tableTemplateList.Templates.Count; index++)
+            {
+                var template = _tableTemplateList.Templates[index];
+                template.StaticId = index;
+
+                switch (template.Type)
+                {
+                    case TableType.Good:
+                        _goodTemplate.Add(template);
+                        break;
+                    
+                    case TableType.Bad:
+                        _badTemplate.Add(template);
+                        break;
+                }
             }
         }
 
@@ -60,8 +85,8 @@ namespace FlamyHail.Client.Gameplay
             Table table = _widePooler.Create<Table>(prefabContainer.SpawnPosition, null, prefabContainer.Scale);
 
             List<TableTemplate> templatesList = Random.Range(0f, 1f) < _tableTemplateList.BadSpawnChance
-                ? _tableTemplateList.BadTemplates
-                : _tableTemplateList.GoodTemplates;
+                ? _badTemplate
+                : _goodTemplate;
 
             TableTemplate template = templatesList[Random.Range(0, templatesList.Count)];
             

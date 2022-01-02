@@ -15,7 +15,8 @@ MonoBehaviour:
   _startYPosition: -3.2
   _distanceBetweenPoints: 1.1
   _pointsCount: 10
-  _pointAgentSpeed: 10
+  _pointAgentSpeed: 0.1
+  _agentArrivedTolerance: 0.2
   _triggers:
   - pointIndex: 0
     _listenedAction: 2

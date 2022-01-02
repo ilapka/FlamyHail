@@ -44,8 +44,11 @@ namespace FlamyHail.Client.Views
             {
                 Vector3 targetPosition = new Vector3(transform.position.x, CurrentPoint.Position.y, transform.position.z);
                 transform.position = Vector3.Lerp(transform.position, targetPosition, _spatialLayoutData.PointAgentSpeed);
+
+                
             }
-            else
+            
+            if (Math.Abs(transform.position.y - CurrentPoint.Position.y) < _spatialLayoutData.AgentArrivedTolerance)
             {
                 if(CurrentPoint.AgentIsMoving)
                     CurrentPoint.Arrive();

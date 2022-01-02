@@ -10,9 +10,10 @@ namespace FlamyHail.Client.SpatialLayout
         private readonly SpatialLayoutData _spatialLayoutData;
 
         private List<LayoutPoint> _verticalLayout;
-
         private LayoutPoint _topPoint;
         
+        private List<LayoutPointTrigger>[] _triggerGroupsByIndex;
+
         public SpatialLayout(IStaticData staticData)
         {
             _spatialLayoutData = staticData.SpatialLayoutData;
@@ -20,19 +21,40 @@ namespace FlamyHail.Client.SpatialLayout
 
         public void CreateVerticalLayout()
         {
+            CreateTriggers();
+            
             _verticalLayout = new List<LayoutPoint>(_spatialLayoutData.PointsCount);
 
             float currentY = _spatialLayoutData.StartYPosition;
 
+            Debug.Log($"SpatialLayout - CreateVerticalLayout, _spatialLayoutData.TriggerGroupsByIndex {_spatialLayoutData.Triggers != null}");
+
             for (var index = 0; index < _spatialLayoutData.PointsCount; index++)
             {
-                LayoutPoint point = new LayoutPoint(index,new Vector3(0, currentY, 0), _spatialLayoutData.TriggerGroupsByIndex[index]);
+                LayoutPoint point = new LayoutPoint(index,new Vector3(0, currentY, 0), _triggerGroupsByIndex[index]);
                 _verticalLayout.Add(point);
                 
                 currentY += _spatialLayoutData.DistanceBetweenPoints;
             }
 
             _topPoint = _verticalLayout[_verticalLayout.Count - 1];
+        }
+
+        private void CreateTriggers()
+        {
+            _triggerGroupsByIndex = new List<LayoutPointTrigger>[_spatialLayoutData.PointsCount];
+
+            foreach (LayoutPointTrigger trigger in _spatialLayoutData.Triggers)
+            {
+                List<LayoutPointTrigger> triggerGroup = _triggerGroupsByIndex[trigger.PointIndex];
+                
+                if(triggerGroup == null)
+                    triggerGroup = new List<LayoutPointTrigger>();
+                
+                triggerGroup.Add(trigger);
+
+                _triggerGroupsByIndex[trigger.PointIndex] = triggerGroup;
+            }
         }
 
         public LayoutPoint TakeTopPoint()
